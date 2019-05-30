@@ -31,6 +31,13 @@ func WithBalancer(cc *consul.Client) DialOption {
 	}
 }
 
+// WithStreamClientInterceptor enables client side stream interception for distributed tracing
+func WithStreamClientInterceptor(ci grpc.StreamClientInterceptor) DialOption {
+	return func(name string) (grpc.DialOption, error) {
+		return grpc.WithStreamInterceptor(ci), nil
+	}
+}
+
 // Dial returns a load balanced grpc client conn with tracing interceptor
 func Dial(name string, opts ...DialOption) (*grpc.ClientConn, error) {
 	dialopts := []grpc.DialOption{
