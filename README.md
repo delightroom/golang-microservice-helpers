@@ -1,3 +1,10 @@
+# ⚠️ Deprecated
+
+No longer maintained/used by the team.
+
+---
+
+
 # Golang Microservice Helpers
 
 This repo includes helper modules for building microservices in Go
